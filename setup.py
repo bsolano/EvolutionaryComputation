@@ -1,5 +1,5 @@
 import pathlib
-from setuptools import setup
+from setuptools import find_packages, setup
 
 HERE = pathlib.Path(__file__).parent
 
@@ -14,5 +14,6 @@ setup(name='EvolutionaryComputation',
       author_email="morganscottbrandon@gmail.com",
       license="MIT",
       install_requires=['matplotlib',
-                        'numpy']
+                        'numpy'],
+      packages=find_packages()
       )
