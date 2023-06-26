@@ -218,7 +218,12 @@ class NetworkArchitectureEvolution:
                                 index += 2
                 else:
                     index += self.initial_population.cnn_module_counts[i]
-            x = Flatten()(x)
+            try:
+                x
+            except NameError:
+                x = Flatten(input_shape=self.input_shape)(inputs)
+            else:
+                x = Flatten()(x)
         if self.initial_population.deep_count == 0:  # just convo
             outputs = Dense(num_output, activation=output_act)(x)
         else:
